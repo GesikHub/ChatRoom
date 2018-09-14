@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="eng">
+<head>
+	<title>Chat Room</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet"  href="../../static/main/style/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
+</head>
+
+<body>
+    <div class="text">
+        <a  href="{{ url_for('login.logout') }}">Выход</a>
+    </div>
+    {% for user in users %}
+	<div class="block">
+		<img class="img" src="../../static/main/image/user.png" width="50" height="50">
+		<div class="text">
+			<div class="name">{{ user.login }}</div>
+			<a href="/send_message?s={{ current_user.id }}&l={{ user.id }}">Написать сообщения</a>
+		</div>
+	</div>
+    {% endfor %}
+</body>
+
+</html>

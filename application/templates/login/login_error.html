@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>East Trip discounts</title>
+</head>
+<!-- Styles -->
+<link rel="stylesheet" href="../../static/auth/css/bootstrap.min.css">
+<link rel="stylesheet" href="../../static/auth/css/style.css">
+
+<body class="text-center">
+    <form class="form-signin", action="" method="post">
+      {{ form.hidden_tag() }}
+      <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+      <label for="username" class="sr-only">Username</label>
+      {{ form.username(placeholder='Username', class="form-control") }}<br>
+      <label for="password" class="sr-only">Password</label>
+      {{ form.password(placeholder='Password', class="form-control") }}<br>
+        <div class="alert alert-info">
+        <strong></strong> Invalid username or password
+        </div>
+        <div class="checkbox mb-3">
+        <label>
+          {{ form.remember_me() }} Remember me
+        </label>
+      </div>
+      {{ form.submit(class="btn btn-lg btn-primary btn-block") }}
+    </form>
+
+<!-- Scripts -->
+<script src="../../static/auth/js/bootstrap.min.js"></script>
+<script src="../../static/auth/js/main.js"></script>
+</body>
+</html>

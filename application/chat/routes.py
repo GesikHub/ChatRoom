@@ -13,7 +13,7 @@ def chat(chat_id):
         return redirect(url_for('main.start'))
     if current_user.id != chat_room.user_1 and current_user.id != chat_room.user_2:
         return redirect(url_for('main.start'))
-    messages = Message.query.filter(Message.chat_room == chat_room.id_chat_room, Message.view == 1).all()
+    messages = Message.query.filter(Message.chat_room == chat_room.id_chat_room, Message.view == True).all()
     if current_user.id == chat_room.user_1:
         user = User.query.filter_by(id=chat_room.user_2).first()
     else:
@@ -47,7 +47,7 @@ def set_message():
 
 @bp.route('/get_message/<chat_id>/<user_id>', methods=['GET'])
 def get_message(chat_id, user_id):
-    messages = Message.query.filter(Message.chat_room == chat_id, Message.sender != user_id, Message.view == 0).all()
+    messages = Message.query.filter(Message.chat_room == chat_id, Message.sender != user_id, Message.view == False).all()
     send_message = []
     for message in messages:
         message.view = True
